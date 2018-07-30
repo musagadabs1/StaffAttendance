@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DailtAttendanceOnFront" targetNamespace="http://tempuri.org/DailtAttendanceOnFront.xsd" xmlns:mstns="http://tempuri.org/DailtAttendanceOnFront.xsd" xmlns="http://tempuri.org/DailtAttendanceOnFront.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="FinalProjectConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="FinalProjectConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FinalProject.Properties.Settings.GlobalReference.Default.FinalProjectConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AttendanceOnFrontTableAdapter" GeneratorDataComponentClassName="AttendanceOnFrontTableAdapter" Name="AttendanceOnFront" UserDataComponentName="AttendanceOnFrontTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FinalProjectConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT 
+	Emp.EmpName,
+	Emp.EmpType,
+	Emp.Picture,
+	Attendance.TimeIn,
+	Attendance.TimeOut,
+	(CONVERT(NVARCHAR, Date, 105))	
+	FROM EmpRegistration Emp INNER JOIN Attendance on Emp.EmpCNIC=Attendance.EmpCNIC AND Date=convert(varchar(10),getdate(),101)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="EmpName" DataSetColumn="EmpName" />
+              <Mapping SourceColumn="EmpType" DataSetColumn="EmpType" />
+              <Mapping SourceColumn="Picture" DataSetColumn="Picture" />
+              <Mapping SourceColumn="TimeIn" DataSetColumn="TimeIn" />
+              <Mapping SourceColumn="TimeOut" DataSetColumn="TimeOut" />
+              <Mapping SourceColumn="Column1" DataSetColumn="Column1" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DailtAttendanceOnFront" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DailtAttendanceOnFront" msprop:Generator_UserDSName="DailtAttendanceOnFront">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="AttendanceOnFront" msprop:Generator_TableClassName="AttendanceOnFrontDataTable" msprop:Generator_TableVarName="tableAttendanceOnFront" msprop:Generator_TablePropName="AttendanceOnFront" msprop:Generator_RowDeletingName="AttendanceOnFrontRowDeleting" msprop:Generator_RowChangingName="AttendanceOnFrontRowChanging" msprop:Generator_RowEvHandlerName="AttendanceOnFrontRowChangeEventHandler" msprop:Generator_RowDeletedName="AttendanceOnFrontRowDeleted" msprop:Generator_UserTableName="AttendanceOnFront" msprop:Generator_RowChangedName="AttendanceOnFrontRowChanged" msprop:Generator_RowEvArgName="AttendanceOnFrontRowChangeEvent" msprop:Generator_RowClassName="AttendanceOnFrontRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="EmpName" msprop:Generator_ColumnVarNameInTable="columnEmpName" msprop:Generator_ColumnPropNameInRow="EmpName" msprop:Generator_ColumnPropNameInTable="EmpNameColumn" msprop:Generator_UserColumnName="EmpName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmpType" msprop:Generator_ColumnVarNameInTable="columnEmpType" msprop:Generator_ColumnPropNameInRow="EmpType" msprop:Generator_ColumnPropNameInTable="EmpTypeColumn" msprop:Generator_UserColumnName="EmpType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Picture" msprop:Generator_ColumnVarNameInTable="columnPicture" msprop:Generator_ColumnPropNameInRow="Picture" msprop:Generator_ColumnPropNameInTable="PictureColumn" msprop:Generator_UserColumnName="Picture" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="TimeIn" msprop:Generator_ColumnVarNameInTable="columnTimeIn" msprop:Generator_ColumnPropNameInRow="TimeIn" msprop:Generator_ColumnPropNameInTable="TimeInColumn" msprop:Generator_UserColumnName="TimeIn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TimeOut" msprop:Generator_ColumnVarNameInTable="columnTimeOut" msprop:Generator_ColumnPropNameInRow="TimeOut" msprop:Generator_ColumnPropNameInTable="TimeOutColumn" msprop:Generator_UserColumnName="TimeOut" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Column1" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnColumn1" msprop:Generator_ColumnPropNameInRow="Column1" msprop:Generator_ColumnPropNameInTable="Column1Column" msprop:Generator_UserColumnName="Column1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
